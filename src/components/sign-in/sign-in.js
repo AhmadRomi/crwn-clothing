@@ -16,7 +16,13 @@ class SignIn extends Component {
     handleSubmit=async (e)=>{
         e.preventDefault();
          const {email, password}=this.state;
-        this.setState({email:"", password:""})
+         try{
+             await auth.signInWithEmailAndPassword(email, password);
+             this.setState({email:"", password:""})
+         }catch(e){
+             console.log(e);
+         }
+        
     }
     render() {
         return (
@@ -42,7 +48,7 @@ class SignIn extends Component {
                     />
                     <div className="buttons">
                     <CustomButton type="submit">Sign In</CustomButton>
-                    <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign In with google</CustomButton>
+                    <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>Sign In with google</CustomButton>
                     </div>
                 </form>
             </div>
