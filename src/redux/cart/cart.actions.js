@@ -9,4 +9,14 @@ export const addItem=item=>({
     payload:item
 });
 
+export const removeItem=item=>({
+    type:cartActionTypes.REMOVE_ITEM,
+    payload:item
+});
+
+export const removeItemAtCheckout=item=>({
+    type:cartActionTypes.REMOVE_ITEM_AT_CHECKOUT,
+    payload:item
+});
+
 
